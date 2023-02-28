@@ -9,7 +9,7 @@ export default function Tasks({ data, onDelete, onToggle }) {
                 return (
                     <div
                         key={item.id}
-                        className={`task${item.done ? " " + "done" : ""}`}
+                        className={`task${item.done ? " done" : ""}`}
                         onDoubleClick={() => onToggle(item.id)}
                     >
                         <h3>

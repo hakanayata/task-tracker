@@ -14,7 +14,7 @@ export default function AddTask({ addTask }) {
 
     useEffect(() => {
         setDate(`${year}-${month}-${day}T${hours}:${mins}`);
-    }, []);
+    });
 
     // console.log(`${year}-${month}-${day}T${hours}:${mins}Z`);
 
