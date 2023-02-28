@@ -1,38 +1,154 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+  font-family: "Jura", sans-serif;
+  background-color: #bbb;
+}
+
+.container {
+  background-color: #d1e5e5;
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 6px 8px;
+  overflow: auto;
+  border-radius: 15px;
+}
+
+.header {
+  letter-spacing: 5px;
+  text-align: center;
+  margin: 0px auto 30px;
+  font-size: 40px;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  background-color: navy;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: .6rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.btn:active {
+  scale: 0.98;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.form-control input {
+  width: 100%;
+  height: 40px;
+  padding: 4px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  color: #666;
+}
+
+.task {
+  background: rgb(246, 246, 236);
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+}
+
+.task:hover {
+  box-shadow: 1px 1px 10px rgb(0, 0, 0);
+}
+
+.task.done {
+  border-left: 10px solid rgb(153, 255, 173);
+  border-radius: 5px;
+  text-decoration: line-through;
+  padding: 10px 20px;
+  opacity: .6;
+
+}
+
+ h3 {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: navy;
 }
 
-.App-link {
-  color: #61dafb;
+form {
+  margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button[id="save-task"], 
+button[id="add-task"] {
+  width: 100%;
+  margin-top: 16px;
+  font-family: "Jura", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+hr {
+  margin: 15px auto;
+  border-top: 2px solid blue;
+  border-radius: 6px;
+}
+
+#add-task {
+  display: block;
+  width: 50%;
+  margin: 10px auto 30px;
+}
+
+.green {
+  background-color: green;
+}
+
+.black {
+  background-color: black;
+}
+
+@media (max-width: 576px) {
+  body {
+    background-color: #d1e5e5;
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    min-height: 100vh;
+    min-width: 100%;
+    margin: 5px auto;
+    padding: 3px 5px;
+  }
+
+  .task h3 {
+    font-size: 17px;
+  }
+
+  #add-task {
+    margin: 10px auto 40px;
   }
 }
