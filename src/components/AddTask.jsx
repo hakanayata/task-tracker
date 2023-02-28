@@ -1,30 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+// date to display on page load
+const now = new Date();
+const year = String(now.getFullYear());
+const month = String(now.getMonth() + 1).padStart(2, "0");
+const day = String(now.getDate()).padStart(2, "0");
+const hours = String(now.getHours()).padStart(2, "0");
+const mins = String(now.getMinutes()).padStart(2, "0");
+
+const currentDatetime = `${year}-${month}-${day}T${hours}:${mins}`;
 
 export default function AddTask({ addTask }) {
     const [text, setText] = useState("");
-    const [date, setDate] = useState("");
-
-    // date to display on page load
-    const now = new Date();
-    const year = String(now.getFullYear());
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = String(now.getDate()).padStart(2, "0");
-    const hours = String(now.getHours()).padStart(2, "0");
-    const mins = String(now.getMinutes()).padStart(2, "0");
-
-    useEffect(() => {
-        setDate(`${year}-${month}-${day}T${hours}:${mins}`);
-    }, [now]);
-
-    // console.log(`${year}-${month}-${day}T${hours}:${mins}Z`);
+    const [date, setDate] = useState(currentDatetime);
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        addTask(text, date);
+        addTask(text, new Date(date).toISOString());
 
         setText("");
-        setDate(`${year}-${month}-${day}T${hours}:${mins}`);
+        setDate(currentDatetime);
     }
 
     return (
@@ -49,14 +45,8 @@ export default function AddTask({ addTask }) {
                     name="date"
                     id="date"
                     value={date}
-                    onChange={(e) =>
-                        setDate(
-                            new Date(e.target.value)
-                                .toISOString()
-                                .slice(0, 16) + "Z"
-                        )
-                    }
                     required
+                    onChange={(e) => setDate(e.target.value)}
                 />
             </div>
             <button className="btn" type="submit" id="save-task">
