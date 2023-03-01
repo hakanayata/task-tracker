@@ -1,4 +1,4 @@
-import { BsTrash } from "react-icons/bs";
+import { IoIosCloseCircle } from "react-icons/io";
 
 export default function Tasks({ data, onDelete, onToggle }) {
     return (
@@ -15,7 +15,7 @@ export default function Tasks({ data, onDelete, onToggle }) {
                         <h3>
                             {item.text}{" "}
                             {
-                                <BsTrash
+                                <IoIosCloseCircle
                                     onClick={() => onDelete(item.id)}
                                     style={{ color: "red" }}
                                 />
