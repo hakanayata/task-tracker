@@ -35,7 +35,15 @@ export default function Home() {
                 Add New Task
             </button>
             {showAddTask && <AddTask addTask={addTask} />}
-            <Tasks data={data} onToggle={toggleDone} onDelete={deleteTask} />
+            {data.length > 0 ? (
+                <Tasks
+                    data={data}
+                    onToggle={toggleDone}
+                    onDelete={deleteTask}
+                />
+            ) : (
+                <p>No tasks to show.</p>
+            )}
         </div>
     );
 }
